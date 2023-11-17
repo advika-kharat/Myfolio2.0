@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razorpay Payment Mashup</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link rel="stylesheet" href="/home.css" id="theme-color">
+   
+
+    <style>
+
+        .container{
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.5rem;
+        }
+
+        button{
+            font-size: 2rem;
+            background-color: #04ffd1;
+            color: black;
+            width: 250px;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 1.2rem;
+            border-radius: 20px;
+            background: -webkit-linear-gradient(#2EE778, #0C9CEE);
+            border: none;
+            cursor: pointer;
+            box-shadow: rgba(255, 255, 255, 0.45) 0px 25px 20px -20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="navigation">
+        <%- include("../views/Partials/afterLoginNav.ejs")%>
+    </div>
+
+    <div class="container">
+    <h1>Get Subscription</h1>
+    <button id="pay-button">Pay Now</button>
+    <br>
+    <br>
+    <a href="/Users/<%= user.username %>"> <b>&lt;</b> Back</a>
+    </div>
+
+    <script>
+        const razorpayKey = 'rzp_test_uuyCYSOARGCEFs';
+
+        $('#pay-button').on('click', function () {
+            const options = {
+                key: razorpayKey,
+                amount: 10000, // Example amount in paise (100 INR)
+                currency: 'INR',
+                name: 'MYFOLIO',
+                description: 'Unlock Premium Templates',
+                // image: 'path/to/your/logo.png',
+                handler: function (response) {
+                    // Send the Razorpay payment ID to your server for verification
+                    $.post('/process-payment', { payment_id: response.razorpay_payment_id }, function (data) {
+                        if (data.success) {
+                            alert('Payment successful!');
+                        } else {
+                            alert('Payment failed. Please try again.');
+                        }
+                    });
+                },
+            };
+
+            const rzp = new Razorpay(options);
+            rzp.open();
+        });
+    </script>
+     <%- include("../views/Partials/footer.ejs")%>
+</body>
+
+</html>
