@@ -1,0 +1,22 @@
+<section class="top-nav">
+    <div class="myfolio">
+        <a href="/Users/<%= user.username %>">MYFOLIO</a>
+    </div>
+    <input id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+        <div class='menu-button'></div>
+    </label>
+    <ul class="menu">
+        <li><a>Welcome, <%= user.username %></a></li>
+        <li><a href="/Users/<%= user.username %>">Dashboard</a></li>
+        <li><a href="/Users/<%= user.username %>/choose-template">Template</a></li>
+        <li><a href="/Users/<%= user.username %>/ProfileEdit">Profile</a></li>
+        <li><a href="#footer">Contact</a></li>
+        <li>
+            <a class="nav-login" href="/logout">
+                <i lass="fas fa-lock" id="nav-lock"></i>
+                Logout
+            </a>
+        </li>
+    </ul>
+</section>

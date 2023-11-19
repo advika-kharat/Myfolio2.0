@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            background-color: rgb(19, 19, 20);
+            color: white;
+            scroll-behavior: smooth;
+            font-family: Inter;
+            margin-left: 15px;
+            margin-right: 15px;
+            
+        }
+    
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            max-width: 90%;
+            margin-left:auto;
+            margin-right: auto;
+        }
+    
+        .name {
+            margin-bottom: 50px;
+            margin-top: 50px;
+            text-align: left;
+            max-width: 100%;
+        }
+    
+        .links {
+            margin-top: 50px;            
+        }
+    
+        .right {
+            padding: 0px;
+            margin-top: 50px;
+            
+        }
+
+        .right .name{
+            display: block;
+        }
+
+        .right #about p{
+            font-size: 20px;
+        }
+
+        #about p{
+            font-size: 20px;
+        }
+    
+        .name>h1 {
+            font-size: 3rem;
+            margin-bottom: 5px;
+        }
+
+        .name>p{
+            font-size: 2rem;
+            font-weight: lighter;
+            color:rgb(237, 84, 24);
+            margin-top:-1px;
+        }
+
+        #skills ul li{
+            list-style:disc;
+            margin-left: -10px;
+            padding:2px;
+            font-size: 18px;
+            font-weight: lighter;
+        }
+
+
+
+        #Experience h3,h4, .proj h3{
+            font-weight: 500;
+            margin:2px;
+            color:rgb(255, 255, 255);
+        }
+        #Experience h3 span, #projects h3 span{
+            float: right;
+            margin-right: 20px;
+            font-weight: light;
+            font-size: smaller;
+        }
+    
+        .links ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 0;
+            font-size: larger;
+            display:flex;
+            margin-top:2rem;
+            margin-left:5rem;
+        }
+
+        .links ul li{
+            padding:10px;
+        }
+    
+        .links ul li a {
+            text-decoration: none;
+            color: white;
+            padding:5px;
+            border-bottom:1.5px solid rgb(237, 173, 24);
+            
+        }
+    
+        .links ul li a:hover {
+            color: rgb(205, 203, 203);
+        }
+
+        #about h2,#skills h2,#Experience h2,#projects h2{
+            color:rgb(237, 84, 24);
+            font-weight: 300;
+        }
+
+        section{
+            margin-bottom: 50px;
+        }
+
+        .container p{
+            font-weight: lighter;
+            margin-bottom: 50px;
+        }
+
+        .contact-links{
+            margin-top: 20vh;
+            display: flex;
+            font-size: 2rem;
+            color:rgb(24, 237, 148) !important;
+        }
+
+        .myfolio{
+            font-size: 2rem;
+            font-weight: bolder;
+        }
+
+        .myfolio a, .footer #myfolio{
+            text-decoration: none;
+            background: linear-gradient(to right, #2EE778, #0C9CEE);
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        @media screen and (max-width:786px) {
+            body{
+                grid-template-columns: 1fr;
+            }
+            
+            .left{
+                display: none;
+                visibility: hidden;
+            }           
+            .right{
+                max-width: 100vw;
+            } 
+            .right .card p{
+                margin-left:0;
+            }
+            .right .name{
+                display: block;
+            }
+            .right .rlinks{
+            display: flex;
+            flex-direction: row;
+            gap:1rem;
+            }
+            
+        }
+
+        .card{
+            
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            padding-bottom: 30px;
+            border-radius: 10px;
+           
+        }
+
+        .card:hover{
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            background-color: rgba(27, 44, 68, 0.619);
+        }
+
+        .card p, h3{
+            background-color: transparent;
+        }
+
+        .card h3{
+            font-size: 21px;
+            margin-bottom: -0.5rem;
+            font-weight: 500;
+        }
+        .card p{
+            margin-left: 3rem;
+            margin-bottom: -1rem;
+            font-size: 19px;
+            font-weight: lighter;
+        }
+
+        .footer{
+            z-index: 1000;
+            text-align: center;
+            position: relative;
+            margin-top: 100px;
+        }
+
+        .name-header{
+            display: flex;
+        }
+
+        #downloadHtmlCode,#downloadResume{
+            font-size: 20px;
+            margin-left: 50px;
+            background: linear-gradient(to right, #2EE778, #0C9CEE);
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            border-bottom: 1px solid white;           
+        }
+
+
+        #pfp{
+            width:10rem;
+            z-index: 1;  
+            margin-left: 65%;
+            margin-top: 10rem;
+            position:absolute;
+        }
+
+    </style>
+</head>
+<body>
+    
+
+ 
+
+    <div class="right">
+
+        <div class="myfolio">
+            <a href="/Users/<%= user.username %>/ProfileEdit">edit</a>
+        </div>
+
+        <!-- <% if (user.profilePicture.url) { %>
+        <img id="pfp" src="<%= user.profilePicture.url %>" alt=" " >
+        <% } %> -->
+
+        <div class="name-header">
+        
+            <div class="name">
+                    
+                
+                <h1>                
+                    <%=user.personalInformation.name %>
+                </h1>    
+                    
+                
+                <p> <%=user.personalInformation.profession %></p>
+                
+            </div>
+
+        
+        <div class="links" >
+            <ul >
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li><a href="#Experience">EXPERIENCE</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+            </ul>
+        </div>
+
+        </div>
+
+        <section id="about" >
+            <div class="container">
+                <h2>About Me</h2>
+               <p> <%=user.personalInformation.bio %></p>
+            </div>
+        </section>
+
+        <section id="skills" >
+            <div class="container">
+                <h2>Skills</h2>
+                <ul>
+                    <% for (let i=0; i < user.skills.length; i++) { %>
+                        <li>
+                            <%= user.skills[i].name %> - <%= user.skills[i].proficiency %>
+                        </li>
+                        <% } %>
+                </ul>
+            </div>
+        </section>
+
+        <section id="Experience">
+            <div class="experience">
+                <h2>Experience</h2>
+                <% user.experience.forEach(exp => { %>
+                    <div class="card">
+                        <h3><%= exp.position %></h3>
+                        <p> <%= exp.company %></p>
+                        <p><%= exp.description %></p>
+                        <!-- <p>Start Date: <%= exp.startDate %></p>  
+                        <p>End Date: <%= exp.endDate %></p>  -->
+                    </div>
+                <% }); %>
+            </div>
+        </section>
+        
+
+        <section id="projects" >
+            <div class="projects">
+                <h2>Projects</h2>
+                
+                <% user.projects.forEach(project => { %>
+                <div class="card">    
+                    <h3><%= project.name %></h3>
+                    <p><%= project.description %></p><br>
+                    <p>Tech Stack/Tools Used: <%= project.techstack %></p>
+                    <p>Project Link: <a href="<%= project.link %>"><%= project.link %></a></p>
+                
+                </div>
+                <% }); %>
+            </div>
+        
+        </section>
+    
+        <div class="contact-links" >
+            <a href="<%=user.personalInformation.github %>" target="_blank">
+                <!-- <img src="github-icon.png" alt="GitHub"> -->
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="<%=user.personalInformation.linkedin %>" target="_blank">
+                <!-- <img src="linkedin-icon.png" alt="LinkedIn"> -->
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:your-<%=user.personalInformation.email%>">
+                <!-- <img src="email-icon.png" alt="Email"> -->
+                <i class="fab fa-google"></i>
+            </a>
+            
+            <!-- <a href="https://instagram.com/your-instagram-username" target="_blank">
+                <img src="instagram-icon.png" alt="Instagram"> 
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/your-twitter-username" target="_blank">
+                <img src="twitter-icon.png" alt="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a> -->
+        
+        </div>
+
+        
+        <br><br><br>
+       
+
+        <a href="<%= user.resume.url %>" id="downloadResume" download="<%= user.resume.filename %>">Download Resume</a>
+        
+        <br><br>
+
+        <a href="#" id="downloadHtmlCode" download="myfolio_code.html">Download Source Code</a>
+
+        <script>
+            // Function to generate and download the HTML code as a file
+            document.getElementById('downloadHtmlCode').addEventListener('click', function() {
+                // Get the HTML content of the entire document
+                const htmlContent = document.documentElement.outerHTML;
+        
+                // Create a Blob from the HTML content
+                const blob = new Blob([htmlContent], { type: 'text/html' });
+        
+                // Create a URL for the Blob
+                const url = URL.createObjectURL(blob);
+        
+                // Create a temporary link and trigger the download
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'myfolio_code.html';
+                link.click();
+        
+                // Release the URL resources
+                URL.revokeObjectURL(url);
+            });
+        </script>
+         <footer class="footer">
+            <p>Made with<span id="myfolio">MYFOLIO</span></p>
+            
+        </footer>
+
+     
+    </div>
+
+
+</body>
+
+</html>

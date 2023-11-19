@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet" href="/home.css" id="theme-color">
+    <link rel="stylesheet" href="../profile.css">
+</head>
+<body>
+    <div class="navigation">
+        <%- include("../../views/Partials/afterLoginNav.ejs")%>
+    </div>
+    <div class="container">
+    <h1>Edit for <%= user.username %></h1>
+    <form action="/Users/<%= user.username %>?_method=PUT" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Name" value="<%= user.name %>">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Username" value="<%= user.username %>">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" placeholder="Email" value="<%= user.email %>">
+        <button type="submit">Update</button>
+    </form>
+    <br>
+    <a href="/Users/<%= user.username %>">Back</a>
+
+    <%- include("../../views/Partials/footer.ejs")%>
+
+    </div>
+</body>
+<style>
+    .container{
+        max-width: 90%;
+        font-size: 1.5rem;
+    }
+
+    input,button{
+        font-size: 1.5rem;
+
+    }
+
+</style>
+</html>

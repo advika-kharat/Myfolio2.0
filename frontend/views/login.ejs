@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="login.css" id="theme-color">
+    <link rel="stylesheet" href="home.css" id="theme-color">
+
+</head>
+<body>
+    <%- include("../views/Partials/nav.ejs")%>
+
+
+    <section>
+        <div class="login">
+        <img src="login.png" class="login-img">
+
+        <form action="/login" method="post">
+            <p id="login">Login</p>
+            <label>Username</label>
+            <br>
+            <input type="text" name="username" id="username"><br>
+            <label>Password</label>
+            <br>
+            <input type="password" name="password" id="username"><br><br>
+            <button type="submit" id="submit-login">Sign in</button><br>
+
+            <!-- <input type="hidden" name="googleLogin" value="true">
+            <button type="submit" id="submit-login">Sign in with Google</button> -->
+            <!-- <button id="submit-login"><a href="/auth/google">Google Login</a></button> -->
+
+            <p>Don't have an account?
+            <span><a href="/register" id="create-account">Create Account</a></span></p>
+            <a href="/error">login with google</a>
+            <br><br>
+        </form>
+        </div>
+    </section>
+
+
+    <%- include("../views/Partials/footer.ejs")%>
+</body>
+</html>

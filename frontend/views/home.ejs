@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="home.css" id="theme-color">
+
+</head>
+<body>
+    <%- include("../views/Partials/nav.ejs")%>
+
+   
+    <section id="header" class="container">
+        <br><br><br>
+        <h1>Build Your Portfolio In Seconds With Myfolio</h1>
+        <h2>Myfolio Is A Platform That Helps You Build Beautiful Portfolios Quickly.<br> Sign Up For Free</h2>
+        <button id="loginButton">Get Started &rarr;</button>
+    </section>
+
+<br><br><br>
+    <section id="features" class="container">
+        <h1>Craft Digital Legacies With Artistry.</h1>
+        <div>
+            <img src="img1.png" width="400" height="300" alt="loading..">
+            <h2>Build State-Of-The-Art Portfolios With Just One Click</h2>
+        </div>
+        <div id="features-div">
+            <h2>Gather All Your Skills,Projects And Experiences In One Place</h2>
+            <img src="img2.png" width="400" height="400" alt="loading..">
+        </div>
+
+        <section class="features-box">
+            <h1>What We Offer</h1>
+            <section id="id-features-box">
+                <div class="features-box-block">
+                    <img src="img3.png" width="170" height="150" alt="loading..">
+                    <h2>Create Once Share Everywhere</h2>
+                </div>
+                <div class="features-box-block">
+                    <img src="img4.png" width="170" height="150" alt="loading..">
+                    <h2>Choose From Beautiful Templates And Layouts</h2>
+                </div>
+                <div class="features-box-block">
+                    <img src="img5.png" width="170" height="150" alt="loading..">
+                    <h2>Download The Source Code Of Your Portfolio</h2>
+                </div>
+                <div class="features-box-block">
+                    <img src="img6.png" width="170" height="150" alt="loading..">
+                    <h2>Share It With Employers and Get Hired</h2>
+                </div>
+            </section>
+        </section>
+    </section>
+
+
+    <section id="FAQ" class="container">
+        <h1>Frequently Asked Questions</h1>
+        <section id="FAQ-box">
+            <div class="FAQ-Q">
+                <h3>Can I try it for free?</h3>
+                <div>Yes, you can use it for free.</div>
+            </div>
+            <div class="FAQ-Q">
+                <h3>What's a portfolio?</h3>
+                <div>A portfolio is like a modern version of a resume, its a colletion of all your relevant works which can be useful for hiring for a job. Myfolio let's you build your portfolio for free!</div>
+            </div>
+            <div class="FAQ-Q">
+                <h3>Can I download my portfolio?</h3>
+                <div>Surely! You can easily find the source code attached to the bottom of your generated portfolio.</div>
+            </div>
+            <div class="FAQ-Q">
+                <h3>How can I contact you?</h3>
+                <div>You can mail us or contact us through social media platforms.</div>
+            </div> 
+        </section>
+        <br>
+        <h2>Have More Questions? Find our 24/7 ChatBot Support on the bottom right!</h2>
+    </section>
+
+
+    <%- include("../views/Partials/footer.ejs")%>
+</body>
+
+<script>
+    // Function to redirect to the login page
+    function redirectToLoginPage() {
+      window.location.href = '/login';
+    }
+    
+    // Add an event listener to the button
+    document.getElementById('loginButton').addEventListener('click', redirectToLoginPage);
+
+    window.embeddedChatbotConfig = {
+        chatbotId: "uAENw1O7Q2tjegkZu0GLb",
+        domain: "www.chatbase.co"
+    }
+  </script>
+<script src="https://www.chatbase.co/embed.min.js" chatbotId="uAENw1O7Q2tjegkZu0GLb" domain="www.chatbase.co" defer>
+</script>
+
+
+</html>

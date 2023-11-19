@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/home.css" id="theme-color">
+    <link rel="stylesheet" href="/profile.css" id="theme-color">
+</head>
+
+<body>
+    <div class="navigation">
+        <%- include("../../views/Partials/afterLoginNav.ejs")%>
+    </div>
+
+    <h1>Choose a template that suits you and your profession the most.</h1>
+    <br><br>
+    <input type="text" id="searchInput" placeholder="Search templates"><br>
+
+    <div class="templates">
+        <div class="template-card" id="1">
+        <img src="/template1.png"> 
+        <p>Dark Mode : Blue and Green</p>
+        <a href="/Users/<%= user.username %>/Template1" class="template-link">use template</a>   
+        </div>
+        <div class="template-card" id="2">
+            <img src="/template2.png"> 
+            <p>Light Mode: Blue and Green</p>   
+            <a href="/Users/<%= user.username %>/Template2" class="template-link">use template</a>   
+        </div>
+        <div class="template-card" id="3">
+            <img src="/template3.png"> 
+            <p>Dark Mode: Black and Orange</p>   
+            <a href="/Users/<%= user.username %>/Template3" class="template-link">use template</a>   
+        </div>
+        <div class="template-card" id="4">
+            <img src="/template4.png"> 
+            <p>Light Mode: Black and Orange</p>   
+            <a href="/Users/<%= user.username %>/Template4" class="template-link">use template</a>   
+        </div>
+        <div class="template-card" id="5">
+            <img src="/template5.png"> 
+            <p>Dark Mode: Blue and Pink</p>   
+            <a href="/Users/<%= user.username %>/Template5" class="template-link">use template</a>   
+        </div>
+        <div class="template-card" id="6">
+            <img src="/template6.png"> 
+            <p>Light Mode: Cream and Brown</p>   
+            <a href="/Users/<%= user.username %>/Template6" class="template-link">use template</a>   
+        </div>
+    </div>
+
+    <%- include("../../views/Partials/footer.ejs")%>
+    <script>
+        // JavaScript for filtering templates based on search input
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('searchInput');
+            const templateCards = document.querySelectorAll('.template-card');
+    
+            searchInput.addEventListener('input', function (event) {
+                const searchTerm = event.target.value.toLowerCase();
+    
+                templateCards.forEach(card => {
+                    const textContent = card.textContent.toLowerCase();
+                    if (textContent.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    
+    </html>
+    
+    
+    
+    
+    
+    
+
+</body>
+<style>
+    h1{
+        max-width: 90%;
+        margin: 1rem 0 0 auto ;
+    }
+    .templates{
+        margin-top: 3rem !important;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 2rem;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+
+    .template-card{
+        background-color: rgb(43, 43, 43);
+        padding:10px;
+        margin:10px;
+        max-width: fit-content;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .template-card:hover{
+        transform: scale(1.05);
+        transition: 1s;
+    }
+
+    img{
+        width:20rem;
+    }
+
+    .template-link{
+        background-color: rgba(135, 255, 223, 0.593);
+        color:rgb(255, 255, 255);
+        float: right;
+        border-radius: 10px;
+        padding:5px;
+    }
+    #searchInput {
+        width: 60%;
+        text-align: left;
+        margin-right: 27%;
+        padding:5px;
+        background-color: transparent;
+        color:white;
+        border:1px solid grey;
+        border-radius: 10px;
+    }
+    
+    @media screen and (max-width:786px) {
+        .templates{
+            display: grid;
+            grid-template-columns: 1fr;
+        }        
+    }
+</style>
+</html>

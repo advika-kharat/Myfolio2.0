@@ -1,0 +1,96 @@
+body{
+    color:white;
+}
+.login{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+.login-img{
+    width:450px;
+}
+
+.login form{
+    background-color: rgb(40, 40, 40);
+    border-radius: 10px;
+    padding-left: 2em;
+    padding-right: 2em;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.login form #login{
+    font-size: 25px !important;
+    background: -webkit-linear-gradient(#2EE778, #0C9CEE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-weight: 700;
+}
+
+.login form label{
+    color:#d0d0d0;
+    margin: 5px;
+    padding: 5px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.login form input{
+    font-size: 20px;
+    padding:10px;
+    margin: 10px;
+    margin-bottom: 20px;
+    width:300px;
+    background-color:rgb(62, 62, 62);
+    border:none;
+    border-radius: 5px;
+    color:white;
+}
+
+button{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.login form #submit-login{
+    border:none;
+    font-size: 20px;
+    background: -webkit-linear-gradient(#57ff9a, #44b2f2);
+    color:black;
+    font-weight: 600;
+    padding:5px;
+    border-radius: 5px;
+}
+
+.login form p:not(#login){
+    color:#ffffff;
+}
+
+.login form #create-account{
+    background: -webkit-linear-gradient(#2EE778, #0C9CEE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border:none;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.login form #create-account:hover, .login form #submit-login:hover{
+    opacity: 50%;
+}
+
+@media screen and (max-width:786px){
+    .login-img{
+        display: none;
+    }
+    .login{
+        max-width: 50%;
+        margin-left: auto;
+        margin-right:auto;
+    }
+}

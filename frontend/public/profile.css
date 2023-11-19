@@ -1,0 +1,133 @@
+.navigation{
+    position: sticky;
+}
+
+.head1{
+    margin: 1em auto auto auto;
+    max-width: 80%;
+}
+
+.head1 p{
+    font-size: 20px;
+}
+
+.info-form {
+    margin: 2em auto auto auto;
+    max-width: 80%;
+    font-size: 15px;
+}
+
+.info-form form .chunk {
+    padding: 0.5em;
+    background-color: #303030;
+    display: block;
+    margin-bottom: 2em;
+    border-radius: 5px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.info-form p,
+label {
+    background-color: transparent;
+    margin-left: 1em;
+}
+
+.info-form form textarea {
+    border: none;
+    border-radius: 5px;
+    margin-left: 1em;
+}
+
+.info-form p {
+    font-size: 1.8em;
+    font-weight: 700;
+    background: -webkit-linear-gradient(#2EE778, #0C9CEE);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+
+.info-form label,
+input {
+    margin-left: 1em;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.info-form input {
+    background-color: rgb(214, 213, 213);
+    color:rgb(0, 0, 0);
+    padding:2px;
+    border-radius: 5px;
+    border:none;
+    width: 30vw;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.info-form select,
+option {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1em;
+    background-color: white;
+}
+
+.info-form button {
+    border-radius: 10px;
+    border: none;
+    padding: 0.5em;
+    font-size: 1em;
+    background-color: #c9e6f5d0;
+}
+
+
+
+#gen-btn {
+    background-color: #04ffd1;
+    color: black;
+    width: 250px;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    background: -webkit-linear-gradient(#2EE778, #0C9CEE);
+    border: none;
+    cursor: pointer;
+    box-shadow: rgba(255, 255, 255, 0.45) 0px 25px 20px -20px;
+}
+
+#gen-btn:hover {
+    color: white;
+    background-color: #03ea95;
+}
+
+.add-btn{
+    float: right;
+    margin-top: -3rem;
+    margin-right: 3rem;
+    margin-bottom: 1rem;
+    color: rgb(0, 0, 0);
+    background-color: rgba(1, 255, 247, 0.778) !important;
+}
+
+input{
+    float: right;
+    margin-right:15rem;
+}
+
+@media screen and (max-width:786px) {
+    *{
+        margin-bottom: 1.2rem;        
+    }
+    input{
+        float: none;
+        width:200px !important;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+    .chunk{
+        padding-bottom: 10px !important;
+    }
+}

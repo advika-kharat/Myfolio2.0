@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= user.username  %></title>
+    <link rel="stylesheet" href="../home.css" id="theme-color">
+    <link rel="stylesheet" href="../profile.css">
+</head>
+<body>
+    <div class="navigation">
+        <%- include("../../views/Partials/afterLoginNav.ejs")%>
+    </div>      
+
+    <div class="profile">
+
+    <div class="left">    
+        <br><br><br>
+    <h1>Hello, <%= user.username  %>!</h1>
+    <h2>Ready to create your portfolio?     <br><br> <a href="/Users/<%= user.username %>/ProfileEdit" id="gen-btn" >Create Portfolio</a></h2>
+    <br>
+   <br>
+   <h2>Get MYFOLIO Premium and Unlock Templates at just ₹99</h2>
+   <a href="/Users/<%= user.username %>/process-payment" id="gen-btn">Subscribe</a>
+   <br>
+   <br>
+   </div>
+
+   <div class="right">    
+    <br><br><br>
+    <h2>Personal Details:</h2>
+    
+    
+    <ul>
+        
+        <li><b>Name: </b><%= user.name %></li>
+        <li><b>Email: </b><%= user.email %></li>
+        <li><u><a id="change" href="/Users/<%= user.username %>/edit" >Change Username</a></u></li>
+        <li><form action="/Users/<%= user.username %>?_method=DELETE" method="POST">
+            <button type="submit" id="btn"><u>Delete</u></button>
+        </form></li>
+    </ul>
+   <br>
+
+   
+   
+   
+   
+    
+
+    </div>
+
+
+    </div>
+
+    <%- include("../../views/Partials/footer.ejs")%>
+</body>
+
+<style>
+    .profile{
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    ul li{
+        list-style:none;
+        font-size: 20px;
+    }
+
+
+
+    #btn,#change{
+        max-width: fit-content !important;
+        font-size: 20px;
+        background-color: transparent;
+        color:white;
+        border:none;
+    }
+
+    @media screen and (max-width:786px) {
+        .profile{
+            display: grid;
+            grid-template-columns: 1fr ;
+        }    
+    }
+
+
+
+</style>
+</html>

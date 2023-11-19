@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/home.css" id="theme-color">
+    <link rel="stylesheet" href="/profile.css" id="theme-color">
+</head>
+
+<body>
+    <div class="navigation">
+        <%- include("../../views/Partials/afterLoginNav.ejs")%>
+    </div>
+
+    <div class="head1">
+        <h1>Let's set up your profile</h1>
+        <p>Your portfolio is your personal brand, and it's your chance to make a strong first impression on potential
+            employers,
+            clients, or collaborators.</p>
+    </div>
+
+
+
+    <div class="info-form">
+        <form id="info" action="/Users/<%= user.username %>/ProfileEdit?_method=PUT" method="POST" name="profileForm" enctype="multipart/form-data"
+            onsubmit="console.log('Form submitted!')">
+            <div class="chunk">
+                <p>Personal Information</p>
+                <label for="name">Name: </label>
+                <input type="text" id="name" name="personalInformation_name" />
+                <br><br>
+                <label for="profession">Profession: </label>
+                <input type="text" id="profession" name="personalInformation_profession" />
+                <br><br>
+                <label for="email">Email: </label>
+                <input type="text" id="email" name="personalInformation_email" />
+                <br><br>
+                <label for="number">Contact Number: </label>
+                <input type="text" id="number" name="personalInformation_number" />
+                <br><br>
+                <label for="profile">LinkedIn Profile: </label>
+                <input type="text" id="linkedin" name="personalInformation_linkedin" />
+                <br><br>
+                <label for="profile">GitHub Profile: </label>
+                <input type="text" id="github" name="personalInformation_github" />
+                <br><br><br>
+                <label for="bio">Write something that describes you : </label>
+                <input type="text" name="personalInformation_bio" id="bio">
+                <br><br>
+                <label for="profile">Profile Picture:</label>
+                <input type="file" id="pfp" name="profilePicture" />
+                <br><br>
+
+                <label for="resume">Resume:</label>
+                <input type="file" id="resume" name="resume" />
+                <br><br>
+                <br><br>
+                <br><br>
+            </div>
+
+            <div class="chunk">
+                <p>Skills</p>
+                <label>Skill 1: </label>
+                <input type="text" id="skill1" name="skills_name_0">
+                <label>Proficiency: </label>
+                <select name="skills_proficiency_0" id="prof1">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="expert">Expert</option>
+                </select>
+                <br><br>
+                <label>Skill 2: </label>
+                <input type="text" id="skill2" name="skills_name_1">
+                <label>Proficiency: </label>
+                <select name="skills_proficiency_1" id="prof2">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="expert">Expert</option>
+                </select>
+                <br><br>
+                <label>Skill 3: </label>
+                <input type="text" id="skill3" name="skills_name_3">
+                <label>Proficiency: </label>
+                <select name="skills_proficiency_3" id="prof3">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="expert">Expert</option>
+                </select>
+                <br><br>
+            </div>
+
+            <div class="chunk" id="experience-section">
+                <p>Experience</p>
+                <div class="experience-entry" data-index="0">
+                    <label>Position: </label>
+                    <input type="text" id="job-position-0" name="experience_position_0">
+                    <br><br>
+                    <label>Company: </label>
+                    <input type="text" id="job-company-0" name="experience_company_0">
+                    <br><br>
+                    <label>Description: </label>
+                    <input type="text" id="job-description-0" name="experience_description_0">
+                    <br><br>
+                    <!-- <label>Start Date: </label>
+                    <input type="text" id="job-startdate-0" name="experience_startdate_0">
+                    <br><br>
+                    <label>End Date: </label>
+                    <input type="text" id="job-enddate-0" name="experience_enddate_0">
+                    <br><br> -->
+                </div>
+                <button type="button" class="add-btn" onclick="addNewExperience()">Add Experience</button>
+            </div>
+
+            <div class="chunk" id="projects-section">
+                <p>Projects</p>
+                <div class="project-entry" data-index="0">
+                    <label>Project Name: </label>
+                    <input type="text" id="proj-0" name="projects_name_0">
+                    <br><br>
+                    <label>Project Description </label>
+                    <input type="text" id="proj-desc-0" name="projects_description_0">
+                    <br><br>
+                    <label>Tech Stack/ Tools Used: </label>
+                    <input type="text" id="proj-tech-0" name="projects_techstack_0">
+                    <br><br>
+                    <label>Project Link: </label>
+                    <input type="text" id="proj-link-0" name="projects_link_0">
+                    <br><br>
+                </div>
+                <button type="button" class="add-btn" onclick="addNewProject()">Add Project</button>
+            </div>
+
+            <br>
+            <input type="submit" value="Generate Portfolio" id="gen-btn" />
+        </form>
+    </div>
+
+    <!-- Footer content -->
+    <%- include("../../views/Partials/footer.ejs")%>
+
+    <script>
+        let experienceIndex = 1; // Counter for experiences
+        let projectIndex = 1; // Counter for projects
+
+        function addNewExperience() {
+        const experienceSection = document.getElementById('experience-section');
+
+        const newExperienceEntry = document.createElement('div');
+        newExperienceEntry.classList.add('experience-entry');
+        newExperienceEntry.dataset.index = experienceIndex;
+
+        newExperienceEntry.innerHTML = `
+            <label>Position: </label>
+            <input type="text" id="job-position-${experienceIndex}" name="experience_position_${experienceIndex}">
+            <br><br>
+            <label>Company: </label>
+            <input type="text" id="job-company-${experienceIndex}" name="experience_company_${experienceIndex}">
+            <br><br>
+            <label>Description: </label>
+            <input type="text" id="job-description-${experienceIndex}" name="experience_description_${experienceIndex}">
+            <br><br>
+            <label>Start Date: </label>
+            <input type="date" id="job-startdate-${experienceIndex}" name="experience_startdate_${experienceIndex}">
+            <br><br>
+            <label>End Date: </label>
+            <input type="date" id="job-enddate-${experienceIndex}" name="experience_enddate_${experienceIndex}">
+            <br><br>
+        `;
+
+        experienceSection.insertBefore(newExperienceEntry, document.getElementById('experience-section').lastElementChild);
+        experienceIndex++;
+    }
+
+        function addNewProject() {
+            const projectsSection = document.getElementById('projects-section');
+
+            const newProjectEntry = document.createElement('div');
+            newProjectEntry.classList.add('project-entry');
+            newProjectEntry.dataset.index = projectIndex;
+
+            newProjectEntry.innerHTML = `
+                <label>Project Name: </label>
+                <input type="text" id="proj-${projectIndex}" name="projects_name_${projectIndex}">
+                <br><br>
+                <label>Project Description </label>
+                <input type="text" id="proj-desc-${projectIndex}" name="projects_description_${projectIndex}">
+                <br><br>
+                <label>Tech Stack/ Tools Used: </label>
+                <input type="text" id="proj-tech-${projectIndex}" name="projects_techstack_${projectIndex}">
+                <br><br>
+                <label>Project Link: </label>
+                <input type="text" id="proj-link-${projectIndex}" name="projects_link_${projectIndex}">
+                <br><br>
+            `;
+
+            projectsSection.insertBefore(newProjectEntry, document.getElementById('projects-section').lastElementChild);
+            projectIndex++;
+        }
+   </script>
+</body>
+</html>
